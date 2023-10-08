@@ -1,0 +1,32 @@
+/* background auth / reg */
+.backgroundImg {
+    background-image: url('../img/background-educon.png');
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+    color: #fff;
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.background-color-main-block {
+    background-color: #ebebeb;
+}
+
+.sub__main__block {
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 1rem 2rem 2rem 2rem !important;
+    margin-top: 6vh;
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+}
