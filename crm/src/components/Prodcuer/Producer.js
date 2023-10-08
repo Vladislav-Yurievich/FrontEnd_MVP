@@ -18,7 +18,7 @@ const Producer = () => {
                 const info = await fetchUserInfo();
                 setUserInfo(info);
 
-                const response = await fetch('http://localhost:8000/groups');
+                const response = await fetch(process.env.REACT_APP_API_URL + '/groups');
                 const data = await response.json();
                 setGroups(data.results);
             } catch (error) {

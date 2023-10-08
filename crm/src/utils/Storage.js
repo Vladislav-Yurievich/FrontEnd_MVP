@@ -17,7 +17,7 @@ export const fetchUserInfo = async () => {
     const token = fetchToken();
     if (token) {
         try {
-            const response = await axios.get('http://localhost:8000/me', {
+            const response = await axios.get(process.env.REACT_APP_API_URL + '/me', {
                 headers: {
                     AccessToken: `${token}`,
                     'Content-type': 'application/json',
