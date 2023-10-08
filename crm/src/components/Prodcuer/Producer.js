@@ -6,7 +6,9 @@ import SideBar from './SideBar';
 const Producer = () => {
     const navigate = useNavigate();
 
-    const [userInfo, setUserInfo] = useState({
+    // const [userInfo, setUserInfo] = useState({
+
+    const [, setUserInfo] = useState({
         group: '',
     });
 
