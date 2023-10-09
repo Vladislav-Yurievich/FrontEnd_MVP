@@ -17,6 +17,8 @@ const AboutGroup = () => {
                 const data = response.data;
                 if (data.base_courses && data.base_courses.length > 0) {
                     setGroupCourses(data.base_courses);
+                } else {
+                    console.log('null courses');
                 }
             } catch (error) {
                 console.error('Ошибка при загрузке курсов для группы', error);
@@ -46,10 +48,7 @@ const AboutGroup = () => {
                                             <h5 className="card-title">{course.course_content_name}</h5>
                                         </div>
                                         <div className="card-footer text-muted">
-                                            <Link
-                                                to={`/producer/AboutGroup/${groupName}/participants/${course.course_content_id}`}
-                                                className="btn btn-outline-secondary m-1"
-                                            >
+                                            <Link to={`/producer/AboutGroup/${groupName}/participants/${course.course_content_id}`} className="btn btn-outline-secondary m-1" >
                                                 Участники
                                             </Link>
                                             <Link to={`/producer/AboutGroup/${groupName}/delete`} className="btn btn-outline-secondary m-1">Удалить</Link>
