@@ -27,7 +27,7 @@ function RegistrationForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/registration', formData);
+            const response = await axios.post(process.env.REACT_APP_API_URL + '/registration', formData);
             setSuccessMessage('Регистрация прошла успешно!');
             console.log(response.data); // сообщение об успешной регистрации в консоли
         } catch (error) {
