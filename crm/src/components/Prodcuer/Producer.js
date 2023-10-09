@@ -43,7 +43,7 @@ const Producer = () => {
                             {groups.map((group, index) => (
                                 <Link
                                     key={index}
-                                    to={`/producer/AboutGroup/${encodeURIComponent(group.name)}`} // encodeURIComponent для правильной обработки специальных символов
+                                    to={`/producer/AboutGroup/${encodeURIComponent(group.name)}`}
                                     className="list-group-item list-group-item-action"
                                 >
                                     {group.name}
