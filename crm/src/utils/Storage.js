@@ -33,6 +33,7 @@ export const fetchUserInfo = async () => {
 
             };
         } catch (error) {
+            deleteToken();
             console.error('Ошибка при получении информации о пользователе', error);
             throw error;
         }
