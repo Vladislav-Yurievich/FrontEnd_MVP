@@ -41,10 +41,15 @@ const Producer = () => {
                         <div className="list-group">
 
                             {groups.map((group, index) => (
-                                <Link key={index} to={`/producer/AboutGroup?=${group.name}`} className="list-group-item list-group-item-action">
+                                <Link
+                                    key={index}
+                                    to={`/producer/AboutGroup/${encodeURIComponent(group.name)}`} // encodeURIComponent для правильной обработки специальных символов
+                                    className="list-group-item list-group-item-action"
+                                >
                                     {group.name}
                                 </Link>
                             ))}
+
 
                         </div>
                     </div>

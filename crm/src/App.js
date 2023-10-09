@@ -14,6 +14,9 @@ import StudentPage from './pages/Student';
 import GradePage from './pages/Grade';
 import PrivateRoute from './utils/PrivateRoute';
 
+import CourseParticipants from './components/Prodcuer/CourseParticipants';
+
+
 
 function App() {
   return (
@@ -27,7 +30,10 @@ function App() {
 
             <Route path='/producer' element={<ProducerPage />} />
             <Route path='/producer/profile' element={<ProfileProducerPage />} />
-            <Route path='/producer/AboutGroup' element={<AboutGroupPage />} />
+
+            <Route path='/producer/AboutGroup/:groupName' element={<AboutGroupPage />} />
+            <Route path='/producer/AboutGroup/:groupName/participants/:course_content_id' element={<CourseParticipants />} />
+
             <Route path='/producer/settings' element={<SettingsProducerPage />} />
 
 
