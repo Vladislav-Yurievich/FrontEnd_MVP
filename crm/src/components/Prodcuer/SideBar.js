@@ -42,6 +42,13 @@ const SideBar = ({ navigate }) => {
                         </Link>
                     </li>
 
+
+                    <li className="nav-item">
+                        <Link to="/producer" className="nav-link align-middle px-0">
+                            <i className="fs-4 bi bi-people"></i> <span className="ms-1 d-none d-sm-inline">Курсы</span>
+                        </Link>
+                    </li>
+
                     {/* <li>
                         <a href="#submenu1" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
                             <i className="fs-4 bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Раскрой</span>

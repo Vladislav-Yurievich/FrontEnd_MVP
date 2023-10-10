@@ -14,6 +14,7 @@ export const deleteToken = (AccessToken) => {
 }
 
 export const fetchUserInfo = async () => {
+
     const token = fetchToken();
     if (token) {
         try {
@@ -30,9 +31,11 @@ export const fetchUserInfo = async () => {
                 group: response.data.group,
                 email: response.data.email,
                 role: response.data.role,
-
             };
         } catch (error) {
+            if (error.response && error.response.status === 410) {
+                deleteToken();
+            }
             console.error('Ошибка при получении информации о пользователе', error);
             throw error;
         }

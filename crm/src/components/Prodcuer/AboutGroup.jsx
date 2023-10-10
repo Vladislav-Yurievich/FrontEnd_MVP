@@ -32,33 +32,41 @@ const AboutGroup = () => {
         <div className="container-fluid">
             <div className="row flex-nowrap">
                 <SideBar navigate={navigate} />
+
                 <div className='col-10 background-color-main-block'>
-                    <div className='sub__main__block'>
-                        <p className="fw-normal fs-3">Настройки группы</p>
-                        <hr />
-                        <p className="fw-normal fs-4">Курсы</p>
-                        <div className="d-flex gap-4 flex-row flex-wrap">
-                            {groupCourses.map((course, index) => (
-                                <div className="col-3" key={index}>
-                                    <div className="card text-center">
-                                        <div className="card-header">
-                                            Курс {index + 1}
+
+                    <div className="col-11">
+                        <div className='sub__main__block'>
+                            <p className="fw-normal fs-3">Настройки группы</p>
+                            <hr />
+                            <p className="fw-normal fs-4">Курсы</p>
+                            {groupCourses.length === 0 ? (
+                                <p>Список курсов - пуст</p>
+                            ) : (
+                                <div className="d-flex gap-4 flex-row flex-wrap">
+                                    {groupCourses.map((course, index) => (
+                                        <div className="col-3" key={index}>
+                                            <div className="card text-center">
+                                                <div className="card-header">
+                                                    Курс {index + 1}
+                                                </div>
+                                                <div className="card-body">
+                                                    <h5 className="card-title">{course.course_content_name}</h5>
+                                                </div>
+                                                <div className="card-footer text-muted">
+                                                    <Link to={`/producer/AboutGroup/${groupName}/participants/${course.course_content_id}`} className="btn btn-outline-secondary m-1" >
+                                                        Участники
+                                                    </Link>
+                                                    <Link to={`/producer/AboutGroup/${groupName}/delete`} className="btn btn-outline-secondary m-1">Удалить</Link>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="card-body">
-                                            <h5 className="card-title">{course.course_content_name}</h5>
-                                        </div>
-                                        <div className="card-footer text-muted">
-                                            <Link to={`/producer/AboutGroup/${groupName}/participants/${course.course_content_id}`} className="btn btn-outline-secondary m-1" >
-                                                Участники
-                                            </Link>
-                                            <Link to={`/producer/AboutGroup/${groupName}/delete`} className="btn btn-outline-secondary m-1">Удалить</Link>
-                                        </div>
-                                    </div>
+                                    ))}
                                 </div>
-                            ))}
+                            )}
                         </div>
-                        <button type="button" className="btn btn-secondary mt-4">Добавить курс</button>
                     </div>
+
                 </div>
             </div>
         </div>

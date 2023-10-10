@@ -13,6 +13,7 @@ import AboutSourcePage from './pages/AboutSource';
 import StudentPage from './pages/Student';
 import GradePage from './pages/Grade';
 import PrivateRoute from './utils/PrivateRoute';
+import AddCourseGroupPage from './pages/AddCourseGroup';
 
 import CourseParticipants from './components/Prodcuer/CourseParticipants';
 
@@ -34,9 +35,10 @@ function App() {
             <Route path='/producer/AboutGroup/:groupName' element={<AboutGroupPage />} />
             <Route path='/producer/AboutGroup/:groupName/participants/:course_content_id' element={<CourseParticipants />} />
 
+
             <Route path='/producer/settings' element={<SettingsProducerPage />} />
 
-
+            <Route path='/producer/AddCourcesGroup' element={<AddCourseGroupPage />} />
 
             <Route path='/inspector' element={<InspectorPage />} />
             <Route path='/inspector/AboutSource' element={<AboutSourcePage />} />

@@ -29,11 +29,11 @@ const ProfileProducer = () => {
 
     return (
         <div className="container-fluid">
-            <div className="row flex-nowrap">
+            <div className="row flex-nowrap background-color-main-block">
 
                 <SideBar navigate={navigate} />
 
-                <div className='col-10 background-color-main-block'>
+                <div className='col-9'>
                     <div className='sub__main__block'>
                         <p className="fw-normal fs-3">Профиль</p>
 
