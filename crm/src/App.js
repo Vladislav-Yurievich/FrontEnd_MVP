@@ -15,45 +15,47 @@ import GradePage from './pages/Grade';
 import PrivateRoute from './utils/PrivateRoute';
 
 import CourseParticipants from './components/Prodcuer/CourseParticipants';
+import CoursePage from './components/Student/CoursePage';
 
 
 
 function App() {
-  return (
-    <div className="App">
+    return (
+        <div className="App">
 
-      <BrowserRouter>
+            <BrowserRouter>
 
-        <Routes>
+                <Routes>
 
-          <Route element={<PrivateRoute />}>
+                    <Route element={<PrivateRoute />}>
 
-            <Route path='/producer' element={<ProducerPage />} />
-            <Route path='/producer/profile' element={<ProfileProducerPage />} />
+                        <Route path='/producer' element={<ProducerPage />} />
+                        <Route path='/producer/profile' element={<ProfileProducerPage />} />
 
-            <Route path='/producer/AboutGroup/:groupName' element={<AboutGroupPage />} />
-            <Route path='/producer/AboutGroup/:groupName/participants/:course_content_id' element={<CourseParticipants />} />
+                        <Route path='/producer/AboutGroup/:groupName' element={<AboutGroupPage />} />
+                        <Route path='/producer/AboutGroup/:groupName/participants/:course_content_id' element={<CourseParticipants />} />
 
-            <Route path='/producer/settings' element={<SettingsProducerPage />} />
+                        <Route path='/producer/settings' element={<SettingsProducerPage />} />
 
 
 
-            <Route path='/inspector' element={<InspectorPage />} />
-            <Route path='/inspector/AboutSource' element={<AboutSourcePage />} />
-            <Route path='/student' element={<StudentPage />} />
-            <Route path='/student/grade' element={<GradePage />} />
+                        <Route path='/inspector' element={<InspectorPage />} />
+                        <Route path='/inspector/AboutSource' element={<AboutSourcePage />} />
+                        <Route path='/student' element={<StudentPage />} />
+                        <Route path='/student/course/:id' element={<CoursePage />} />
+                        <Route path='/student/grade' element={<GradePage />} />
 
-          </Route>
+                    </Route>
 
-          <Route path='/' element={<AuthPage />} />
-          <Route path='/reg' element={<RegPage />} />
+                    <Route path='/' element={<AuthPage />} />
+                    <Route path='/reg' element={<RegPage />} />
 
-        </Routes>
+                </Routes>
 
-      </BrowserRouter>
+            </BrowserRouter>
 
-    </div>
-  );
+        </div>
+    );
 }
 
 export default App;
