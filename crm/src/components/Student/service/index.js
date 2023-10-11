@@ -2,14 +2,20 @@ import { $authApi } from "../../../api"
 
 
 class StudentService {
+    getMe = async () => {
+        const response = await $authApi.get('/me');
+        return response;
+    }
+
     getCourses = async () => {
         const response = await $authApi.get('/get-my-courses');
         return response;
     }
 
     //! пока нет обработки на беке
-    getScores = async () => {
-        const response = await $authApi.get('/get-my-scores');
+    getScores = async (course_content_id) => {
+        const student_id = (await this.getMe()).data.id;
+        const response = await $authApi.get(`/get-scores?student_id=${student_id}&course_content_id=${course_content_id}`);
         return response;
     }
 }
