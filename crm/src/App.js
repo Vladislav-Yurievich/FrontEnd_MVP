@@ -12,10 +12,12 @@ import InspectorPage from './pages/Inspector';
 import AboutSourcePage from './pages/AboutSource';
 import StudentPage from './pages/Student';
 import GradePage from './pages/Grade';
+import CourseContentPage from './pages/CourseContentPage';
+
 import PrivateRoute from './utils/PrivateRoute';
 
 import CourseParticipants from './components/Prodcuer/CourseParticipants';
-import CoursePage from './components/Student/CoursePage';
+import CourseScorePage from './pages/CourseScorePage';
 
 
 
@@ -42,8 +44,9 @@ function App() {
                         <Route path='/inspector' element={<InspectorPage />} />
                         <Route path='/inspector/AboutSource' element={<AboutSourcePage />} />
                         <Route path='/student' element={<StudentPage />} />
-                        <Route path='/student/course/:id' element={<CoursePage />} />
+                        <Route path='/student/course/:id' element={<CourseContentPage />} />
                         <Route path='/student/grade' element={<GradePage />} />
+                        <Route path='/student/grade/course/:id' element={<CourseScorePage />} />
 
                     </Route>
 
