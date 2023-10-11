@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { deleteToken, fetchUserInfo } from '../../utils/Storage';
 
-const SideBar = () => {
+
+const SideBar = ({ navigate }) => {
+
+    const [userInfo, setUserInfo] = useState({
+        first_name: '',
+        group: '',
+    });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const info = await fetchUserInfo();
+                setUserInfo(info);
+            } catch (error) {
+                console.error('ошибка');
+            }
+        };
+
+        fetchData();
+    }, []);
+
+
     return (
 
         <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
@@ -17,8 +39,8 @@ const SideBar = () => {
                     </li>
 
                     <li className="nav-item">
-                        <Link to="/inspector" className="nav-link align-middle px-0">
-                            <i className="fs-4 bi bi-bar-chart"></i> <span className="ms-1 d-none d-sm-inline">Курсы</span>
+                        <Link to="/inspector/content-managament" className="nav-link align-middle px-0">
+                            <i className="fs-4 bi bi-bar-chart-steps"></i> <span className="ms-1 d-none d-sm-inline">Контент</span>
                         </Link>
                     </li>
                 </ul>
@@ -28,7 +50,7 @@ const SideBar = () => {
                 <div className="dropdown pb-4">
                     <Link to="/inspector" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <i className='fs-4 bi bi-person-circle'></i>
-                        <span className="d-none d-sm-inline mx-2">Inspector</span>
+                        <span className="d-none d-sm-inline mx-2">{userInfo.first_name}</span>
                     </Link>
 
                     <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
@@ -37,7 +59,7 @@ const SideBar = () => {
                         <li>
                             <hr className="dropdown-divider" />
                         </li>
-                        <li><Link className="dropdown-item" to='/inspector'>Выйти</Link></li>
+                        <li><Link className="dropdown-item" to='/' onClick={deleteToken}>Выйти</Link></li>
                     </ul>
                 </div>
             </div>

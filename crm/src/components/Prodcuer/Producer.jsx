@@ -85,13 +85,8 @@ const Producer = () => {
                                 )}
                             </div>
                         </div>
-                        <a href="/producer/AddCourcesGroup" className='btn btn-secondary mt-4'>Добавить курс</a>
                     </div>
                 </div>
-
-
-
-
             </div>
         </div>
     );

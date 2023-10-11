@@ -9,6 +9,7 @@ import ProfileProducerPage from './pages/ProfileProducer';
 import SettingsProducerPage from './pages/SettingsProducer';
 import AboutGroupPage from './pages/AboutGroup';
 import InspectorPage from './pages/Inspector';
+import ContentManagamentPage from './pages/ContentManagment';
 import AboutSourcePage from './pages/AboutSource';
 import StudentPage from './pages/Student';
 import GradePage from './pages/Grade';
@@ -41,6 +42,9 @@ function App() {
             <Route path='/producer/AddCourcesGroup' element={<AddCourseGroupPage />} />
 
             <Route path='/inspector' element={<InspectorPage />} />
+            <Route path='/inspector/content-managament' element={<ContentManagamentPage />} />
+
+
             <Route path='/inspector/AboutSource' element={<AboutSourcePage />} />
             <Route path='/student' element={<StudentPage />} />
             <Route path='/student/grade' element={<GradePage />} />

@@ -1,20 +1,18 @@
-
 import axios from "axios";
 
 export const setToken = (AccessToken) => {
     localStorage.setItem('UserToken', AccessToken)
 }
 
-export const fetchToken = (AccessToken) => {
-    return localStorage.getItem('UserToken', AccessToken);
+export const fetchToken = () => {
+    return localStorage.getItem('UserToken');
 }
 
-export const deleteToken = (AccessToken) => {
-    localStorage.removeItem('UserToken', AccessToken);
+export const deleteToken = () => {
+    localStorage.removeItem('UserToken');
 }
 
 export const fetchUserInfo = async () => {
-
     const token = fetchToken();
     if (token) {
         try {
@@ -31,13 +29,12 @@ export const fetchUserInfo = async () => {
                 group: response.data.group,
                 email: response.data.email,
                 role: response.data.role,
+
             };
         } catch (error) {
-            if (error.response && error.response.status === 410) {
-                deleteToken();
-            }
+            deleteToken();
             console.error('Ошибка при получении информации о пользователе', error);
-            throw error;
+            // throw error;
         }
     }
 };

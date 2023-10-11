@@ -44,8 +44,8 @@ const SideBar = ({ navigate }) => {
 
 
                     <li className="nav-item">
-                        <Link to="/producer" className="nav-link align-middle px-0">
-                            <i className="fs-4 bi bi-people"></i> <span className="ms-1 d-none d-sm-inline">Курсы</span>
+                        <Link to="/producer/AddCourcesGroup" className="nav-link align-middle px-0">
+                            <i className="fs-4 bi bi-bar-chart"></i> <span className="ms-1 d-none d-sm-inline">Курсы</span>
                         </Link>
                     </li>
 
