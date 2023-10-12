@@ -7,12 +7,14 @@ import SideBar from './SideBar';
 
 const Producer = () => {
     const navigate = useNavigate();
-    const [, setUserInfo] = useState({
-        group: '',
-    });
+    const [, setUserInfo] = useState({ group: '' });
     const [searchQuery, setSearchQuery] = useState('');
     const [groups, setGroups] = useState([]);
-    const [noResults, setNoResults] = useState(false); // Состояние для отображения сообщения "Ничего не найдено"
+    const [noResults, setNoResults] = useState(false);
+    const [groupName, setGroupName] = useState('');
+    const [isTeam, setIsTeam] = useState(false);
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -48,11 +50,41 @@ const Producer = () => {
             const data = response.data;
             const searchResults = data.results;
             setGroups(searchResults);
-            // Устанавливаем состояние noResults в true, если результаты поиска пусты
+            // ставлю состояние noResults в true, если результаты поиска пусты как моя жизнь
             setNoResults(searchResults.length === 0);
         } catch (error) {
             console.error('Ошибка', error);
         }
+    };
+
+    const handleCreateGroup = async (e) => {
+        e.preventDefault();
+
+        const data = [
+            {
+                name: groupName,
+                is_team: isTeam,
+            }];
+
+        axios.post(process.env.REACT_APP_API_URL + `/create-groups`, data)
+            .then(response => {
+                setSuccessMessage('Группа успешно создана');
+                setErrorMessage('');
+                console.log("отправлено", response.data);
+            })
+            .catch(error => {
+                setSuccessMessage('');
+                if (error.response) {
+                    setErrorMessage(`Ошибка при получении ответа от сервера: ${error.response.data}`);
+                    console.error("Ошибка при получении ответа от сервера:", error.response.data);
+                } else if (error.request) {
+                    setErrorMessage(`Ошибка при выполнении запроса: ${error.request}`);
+                    console.error("Ошибка при выполнении запроса:", error.request);
+                } else {
+                    setErrorMessage(`Ошибка: ${error.message}`);
+                    console.error("Ошибка:", error.message);
+                }
+            });
     };
 
     return (
@@ -63,11 +95,25 @@ const Producer = () => {
                 <div className="col-9">
 
                     <div className='sub__main__block'>
-                        <p className="fw-normal fs-3">Список групп</p>
+
                         <div className="col-7">
+                            <p className="fw-normal fs-3">Создание группы</p>
+                            {successMessage && <div className="alert alert-success">{successMessage}</div>}
+                            {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+                            <form className='form' onSubmit={handleCreateGroup}>
+                                <input type="text" className='form-control mr-sm-2' placeholder='Введите название группы' value={groupName} onChange={(e) => setGroupName(e.target.value)} required />
+                                <label className='mt-3 d-flex align-items-center '> Электив <input type="checkbox" className='ms-2' checked={isTeam} onChange={() => setIsTeam(!isTeam)} /></label>
+                                <button className='btn btn-secondary mt-3' type="submit">Создать</button>
+                            </form>
+                        </div>
+
+                        <hr />
+
+                        <div className="col-7">
+                            <p className="fw-normal fs-3">Список групп</p>
                             <form onSubmit={handleSearchSubmit} className='d-flex'>
                                 <input className="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search" value={searchQuery} onChange={handleSearchInputChange} required />
-                                <button className="btn btn-outline-secondary my-2 my-sm-0 ms-3" type="submit">Поиск</button>
+                                <button className="btn btn-outline-secondary my-sm-0 ms-3" type="submit">Поиск</button>
                             </form>
                         </div>
                         <br />

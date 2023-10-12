@@ -87,7 +87,7 @@ const AddCourseGroup = () => {
                 <SideBar />
                 <div className="col-10 background-color-main-block">
                     <div className='sub__main__block'>
-                        <p className="fw-normal fs-3">Добавление курса и группы</p>
+                        <p className="fw-normal fs-3">Создание курса / Добавление курса к группе</p>
                         <hr />
                         <div className="col-5">
 
