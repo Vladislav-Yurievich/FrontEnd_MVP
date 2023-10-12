@@ -23,10 +23,8 @@ const BuisnessCoursesList = ({ link }) => {
     const [courses, setCourses] = useState(null);
 
     const [getCourses, loadingCourses, errorCourses] = useFetching(async () => {
-        // пока выводятся временные значения, потому что у меня пустая бд :P
-        // const courses = await studentService.getCourses();
-        // console.log(courses.data);
-        setCourses(TEMP_COURSES);
+        const courses = await studentService.getCourses();
+        setCourses(courses.data);
     });
 
     useEffect(() => {
