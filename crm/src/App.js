@@ -39,31 +39,17 @@ function App() {
                         <Route path='/producer/AboutGroup/:groupName' element={<AboutGroupPage />} />
                         <Route path='/producer/AboutGroup/:groupName/participants/:course_content_id' element={<CourseParticipants />} />
 
-<<<<<<< HEAD
-
-            <Route path='/producer/settings' element={<SettingsProducerPage />} />
-=======
                         <Route path='/producer/settings' element={<SettingsProducerPage />} />
->>>>>>> 5ed249ed0be0e0cb5998923341a3383b28eb8aef
 
-            <Route path='/producer/AddCourcesGroup' element={<AddCourseGroupPage />} />
+                        <Route path='/producer/AddCourcesGroup' element={<AddCourseGroupPage />} />
 
-<<<<<<< HEAD
-            <Route path='/inspector' element={<InspectorPage />} />
-            <Route path='/inspector/content-managament' element={<ContentManagamentPage />} />
-
-
-            <Route path='/inspector/AboutSource' element={<AboutSourcePage />} />
-            <Route path='/student' element={<StudentPage />} />
-            <Route path='/student/grade' element={<GradePage />} />
-=======
+                        <Route path='/inspector/content-managament' element={<ContentManagamentPage />} />
                         <Route path='/inspector' element={<InspectorPage />} />
                         <Route path='/inspector/AboutSource' element={<AboutSourcePage />} />
                         <Route path='/student' element={<StudentPage />} />
                         <Route path='/student/course/:id' element={<CourseContentPage />} />
                         <Route path='/student/grade' element={<GradePage />} />
                         <Route path='/student/grade/course/:id' element={<CourseScorePage />} />
->>>>>>> 5ed249ed0be0e0cb5998923341a3383b28eb8aef
 
                     </Route>
 
