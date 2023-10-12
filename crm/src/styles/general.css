@@ -31,3 +31,9 @@
     display: flex;
     align-items: center;
 }
+
+.gap {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
