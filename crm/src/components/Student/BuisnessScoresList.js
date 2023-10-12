@@ -7,11 +7,9 @@ import { useParams } from 'react-router-dom';
 
 
 const TEMP_COURSES = [
-    { name: 'Анальные щекоталки', task_content_id: 591, score: 31, max_score: 61 },
-    { name: 'Анальные прятки', task_content_id: 491, score: 311, max_score: 421 },
-    { name: 'Анальные догонялки', task_content_id: 391, score: 312, max_score: 610 },
-    { name: 'Анальные шептунчики', task_content_id: 291, score: 313, max_score: 613 },
-    { name: 'Анальные гонки', task_content_id: 191, score: 314, max_score: 615 },
+    { name: 'Дискретная математика', task_content_id: 591, score: 31, max_score: 80 },
+    { name: 'Программирование', task_content_id: 491, score: 91, max_score: 100 },
+    { name: 'Русский язык', task_content_id: 391, score: 72, max_score: 100 },
 ];
 
 
